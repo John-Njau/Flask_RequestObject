@@ -1,5 +1,4 @@
-from enum import unique
-from flask import Flask,render_template, request
+from flask import Flask,render_template, request, redirect, url_for
 from flask_sqlalchemy import SQLAlchemy
 
 app = Flask(__name__)
@@ -37,9 +36,13 @@ def index():
         addstudent = Student(first_name=form['name'], course=form['course'])
         db.session.add(addstudent)
         db.session.commit()
-        content = Student.query.all()
-        return render_template ('index.html', data=addstudent, content= content)
-    return render_template('index.html')
+        return redirect(url_for('display'))
+    return render_template ('index.html')
+
+@app.route('/display')
+def display():
+    data = Student.query.all()
+    return render_template('display.html', data=data)
     
 if __name__ == '__main__':
     app.run(debug=True)

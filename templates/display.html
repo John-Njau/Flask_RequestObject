@@ -1,6 +1,7 @@
 {% extends "base.html" %}
 <head>
 {%block body%}
+
 <h2>All data</h2>
 <ul>
   <table>
@@ -9,11 +10,11 @@
       <th>Name</th>
       <th>Course</th>
     </tr>
-    {% for value in content %}
+    {% for datum in data %}
     <tr>
-      <td>{{value.id}}</td>
-      <td>{{ value.first_name }}</td>
-      <td>{{ value.course }}</td>
+      <td>{{datum.id}}</td>
+      <td>{{ datum.first_name }}</td>
+      <td>{{ datum.course }}</td>
     </tr>
     {% endfor %}
   </table>
