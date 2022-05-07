@@ -1,0 +1,21 @@
+{% extends "base.html" %}
+<head>
+{%block body%}
+<h2>All data</h2>
+<ul>
+  <table>
+    <tr>
+      <th>Student id</th>
+      <th>Name</th>
+      <th>Course</th>
+    </tr>
+    {% for value in content %}
+    <tr>
+      <td>{{value.id}}</td>
+      <td>{{ value.first_name }}</td>
+      <td>{{ value.course }}</td>
+    </tr>
+    {% endfor %}
+  </table>
+</ul>
+{% endblock %}

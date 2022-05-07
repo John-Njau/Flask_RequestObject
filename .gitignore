@@ -1,0 +1,4 @@
+*.txt
+env/
+*.pyc
+*.db
